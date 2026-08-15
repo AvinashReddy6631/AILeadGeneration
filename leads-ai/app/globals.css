@@ -24,9 +24,7 @@ body { @apply bg-background text-foreground; background-image: radial-gradient(c
 @layer base { button, a, input, select, textarea { @apply focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background; } }
 
 .dark { color-scheme: dark; }
-.light { color-scheme: light; }
-
-@media (prefers-color-scheme: light) { :root:not(.dark) { color-scheme: dark; } }
+.light { color-scheme: light; --background: #f7f8fa; --foreground: #111318; --card: #ffffff; --card-foreground: #111318; --popover: #ffffff; --popover-foreground: #111318; --secondary: #eef0f4; --secondary-foreground: #111318; --muted: #f1f2f5; --muted-foreground: #6b7280; --border: #e4e7ec; --input: #e4e7ec; --accent-foreground: #ffffff; }
 
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 .animate-rise { animation: rise .65s ease-out both; }
