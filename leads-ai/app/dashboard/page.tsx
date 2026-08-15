@@ -1,0 +1,7 @@
+"use client"
+
+import Link from 'next/link'
+import { useAnalytics } from '@/hooks/useAnalytics'
+import { Loading } from '@/components/shared/Loading'
+
+export default function DashboardPage() { const { data, isLoading, error } = useAnalytics(); if (isLoading) return <Loading />; return <section className="space-y-6 p-6 md:p-8"><div className="flex items-start justify-between gap-4"><div><p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Leads AI</p><h1 className="mt-2 text-3xl font-semibold">Dashboard</h1><p className="mt-2 text-muted-foreground">A live view of your lead pipeline.</p></div><Link href="/dashboard/leads" className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">View leads</Link></div>{error && <p role="alert" className="rounded-lg border border-destructive/30 bg-destructive/10 p-4 text-sm text-destructive">{error}</p>}<div className="grid gap-4 sm:grid-cols-3"><article className="rounded-xl border border-border p-5"><p className="text-sm text-muted-foreground">Total leads</p><p className="mt-2 text-3xl font-semibold">{data?.total ?? 0}</p></article><article className="rounded-xl border border-border p-5"><p className="text-sm text-muted-foreground">Statuses tracked</p><p className="mt-2 text-3xl font-semibold">{data?.byStatus.length ?? 0}</p></article><article className="rounded-xl border border-border p-5"><p className="text-sm text-muted-foreground">Priorities tracked</p><p className="mt-2 text-3xl font-semibold">{data?.byPriority.length ?? 0}</p></article></div></section> }
